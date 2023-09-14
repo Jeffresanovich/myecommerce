@@ -5,29 +5,40 @@ import Header from "../components/Header";
 import Search from "../components/Search";
 import ProductsList from "../components/ProductsList";
 
-import products from "../data/products";
+import allProducts from "../data/products";
 
-const Products = ({ category = "productos" }) => {
+const Products = ({ category }) => {
   const [text, setText] = useState(null);
 
+  const [productLoad, setProductLoad] = useState([]);
   const [productSearch, setProductSearch] = useState([]);
 
   useEffect(() => {
-    if (category === "productos") setProductSearch(products);
+    /**
+     * Esto permite inicializar la app con una cantidad determinada de productos,
+     * es decir, dependiendo de la categoria, guardará todos los productos o solo
+     * los de dicha categoria.
+     */
+    if (category === "productos") setProductLoad(allProducts);
     else {
-      const searchByCategory = products.filter(
+      const productsByCategory = allProducts.filter(
         (search) => search.category.toLowerCase() === category.toLowerCase()
       );
-      setProductSearch(searchByCategory);
+      setProductLoad(productsByCategory);
     }
 
+    /**
+     * Este condicional permite busqueda entre productos previamente filtrados,
+     * pudiendo ser todos los productos o solo los que correspoda a una categoria
+     * determinada.
+     */
     if (text) {
-      const searchByTitle = products.filter(
+      const searchByTitle = productLoad.filter(
         (search) =>
           search.title.toLocaleLowerCase() === text.toLocaleLowerCase()
       );
       setProductSearch(searchByTitle);
-    }
+    } else setProductSearch(productLoad);
   }, [text, category]);
 
   return (

@@ -13,12 +13,10 @@ export default function App() {
 
   if (!fontsLoaded) return;
 
-  console.log(fontsLoaded);
-
   return (
     <SafeAreaView>
       {/*<Home></Home>*/}
-      {<Products category='laptops' />}
+      {<Products category='smartphones' />}
     </SafeAreaView>
   );
 }
