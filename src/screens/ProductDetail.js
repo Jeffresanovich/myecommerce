@@ -6,7 +6,7 @@ import products from "../data/products";
 const ProductDetail = ({ product }) => {
   return (
     <View>
-      <Text>{product.}</Text>
+      <Text>{product}</Text>
     </View>
   );
 };
