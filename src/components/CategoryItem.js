@@ -4,8 +4,8 @@ import color from "../theme/color";
 
 const CategoryItem = ({ item }) => {
   return (
-    <View>
-      <Text style={styles.text}> {item} </Text>
+    <View style={styles.categoriesContainer}>
+      <Text style={styles.text}> {item.toUpperCase()} </Text>
     </View>
   );
 };
@@ -13,12 +13,14 @@ const CategoryItem = ({ item }) => {
 export default CategoryItem;
 
 const styles = StyleSheet.create({
+  categoriesContainer: {},
   text: {
-    margin: 7,
+    margin: 10,
+    paddingVertical: 10,
     fontSize: 30,
     color: color.heavyBlue,
     borderColor: color.mediumBlue,
-    borderRadius: 50,
+    borderRadius: 10,
     borderWidth: 2,
     textAlign: "center",
   },

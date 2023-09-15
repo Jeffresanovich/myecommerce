@@ -4,7 +4,7 @@ import Category from "./Category";
 
 const Home = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Category />
     </View>
   );
@@ -12,4 +12,8 @@ const Home = () => {
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    marginBottom: 400,
+  },
+});
