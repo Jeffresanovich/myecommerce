@@ -24,9 +24,9 @@ export default function App() {
 
   return (
     <SafeAreaView>
-      {<Home></Home>}
+      {/*<Home></Home>*/}
       {/*<Products category='smartphones' />*/}
-      {/*<ProductDetail product={products[66]} />*/}
+      {<ProductDetail product={products[9]} />}
     </SafeAreaView>
   );
 }

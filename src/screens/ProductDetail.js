@@ -26,7 +26,7 @@ const ProductDetail = ({ product }) => {
           <View style={styles.upTitle}>
             <View style={styles.ratingContainer}>
               <AntDesign name='star' size={24} color='yellow' />
-              <Text style={styles.rating}>{product.rating}</Text>
+              <Text style={styles.rating}>{product.rating.toFixed(1)}</Text>
             </View>
             <Text style={styles.stock}>
               {product.stock} {product.stock > 1 ? "disponibles" : "disponible"}
