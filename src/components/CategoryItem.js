@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 
 import color from "../theme/color";
 
-const CategoryItem = ({ item }) => {
+const CategoryItem = ({ item, navigation }) => {
   return (
     <View style={styles.categoriesContainer}>
-      <Text style={styles.text}> {item.toUpperCase()} </Text>
+      <Pressable
+        onPress={() => navigation.navigate("Products", { category: item })}
+      >
+        <Text style={styles.text}> {item.toUpperCase()} </Text>
+      </Pressable>
     </View>
   );
 };

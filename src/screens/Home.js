@@ -1,11 +1,13 @@
 import { StyleSheet, View } from "react-native";
 
-import Category from "./Category";
+import Header from "../components/Header";
+import CategoriesList from "../components/CategoriesList";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Category />
+      <Header title='CATEGORIAS'></Header>
+      <CategoriesList navigation={navigation} />
     </View>
   );
 };
@@ -14,6 +16,6 @@ export default Home;
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 400,
+    marginBottom: 200,
   },
 });

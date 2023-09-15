@@ -8,7 +8,9 @@ import Header from "../components/Header";
 
 import colors from "../theme/color";
 
-const ProductDetail = ({ product }) => {
+const ProductDetail = ({ route }) => {
+  const { product } = route.params;
+
   return (
     <View>
       <Header title={product.category} />
@@ -26,7 +28,7 @@ const ProductDetail = ({ product }) => {
           <View style={styles.upTitle}>
             <View style={styles.ratingContainer}>
               <AntDesign name='star' size={24} color='yellow' />
-              <Text style={styles.rating}>{product.rating.toFixed(1)}</Text>
+              <Text style={styles.rating}>{product.rating.toFixed()}</Text>
             </View>
             <Text style={styles.stock}>
               {product.stock} {product.stock > 1 ? "disponibles" : "disponible"}

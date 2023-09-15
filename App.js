@@ -1,12 +1,7 @@
-import { SafeAreaView, StyleSheet, View } from "react-native";
-
-import Home from "./src/screens/Home";
-import Products from "./src/screens/Products";
-import ProductDetail from "./src/screens/ProductDetail";
-
 import { useFonts } from "expo-font";
+import { NavigationContainer } from "@react-navigation/native";
 
-import products from "./src/data/products";
+import RootNavigation from "./src/router/RootNavigation";
 
 export default function App() {
   /**
@@ -23,12 +18,8 @@ export default function App() {
   if (!fontsLoaded) return;
 
   return (
-    <SafeAreaView>
-      {/*<Home></Home>*/}
-      {/*<Products category='smartphones' />*/}
-      {<ProductDetail product={products[9]} />}
-    </SafeAreaView>
+    <NavigationContainer>
+      <RootNavigation />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({});

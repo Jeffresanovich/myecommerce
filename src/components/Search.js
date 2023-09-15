@@ -22,7 +22,11 @@ const Search = ({ text, setText }) => {
       />
       {text ? (
         <Pressable onPress={clearText}>
-          <MaterialIcons name='cleaning-services' size={30} color='black' />
+          <MaterialIcons
+            name='cleaning-services'
+            size={30}
+            color={colors.mediumBlue}
+          />
         </Pressable>
       ) : null}
     </View>
