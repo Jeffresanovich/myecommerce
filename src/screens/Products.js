@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
 
+//Components
 import Header from "../components/Header";
 import Search from "../components/Search";
 import ProductsList from "../components/ProductsList";
 
+//Products data base
 import allProducts from "../data/products";
 
 const Products = ({ route, navigation }) => {

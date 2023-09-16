@@ -1,13 +1,19 @@
 import { StyleSheet, View, Text, Image, Pressable } from "react-native";
 
+//Icons
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 
+//Components
 import Header from "../components/Header";
+import Price from "../components/Price";
+import DiscountPercentage from "../components/DiscountPercentage";
+import BeforePrice from "../components/BeforePrice";
+import Description from "../components/Description";
 
+//Styles
 import { flex } from "../theme/stylesFunctions";
-import colors from "../theme/color";
 
 const ProductDetail = ({ route }) => {
   const { product } = route.params;
@@ -23,13 +29,13 @@ const ProductDetail = ({ route }) => {
           }}
         />
       </View>
-      <View style={styles.titleContainer}>
+      <View style={styles.infoContainer}>
         <View>
           <Text style={styles.title}>{product.title}</Text>
-          <View style={styles.upTitle}>
+          <View style={styles.ratingStockContainer}>
             <View style={styles.ratingContainer}>
               <AntDesign name='star' size={24} color='yellow' />
-              <Text style={styles.rating}>{product.rating.toFixed()}</Text>
+              <Text style={styles.rating}>{product.rating.toFixed(1)}</Text>
             </View>
             <Text style={styles.stock}>
               {product.stock} {product.stock > 1 ? "disponibles" : "disponible"}
@@ -37,19 +43,15 @@ const ProductDetail = ({ route }) => {
           </View>
         </View>
         <View style={styles.priceContainer}>
-          <Text style={styles.beforePrice}>
-            $
-            {Math.round(
-              (product.price * product.discountPercentage) / 100 + product.price
-            )}
-          </Text>
-          <Text style={styles.price}>${product.price}</Text>
-          <Text style={styles.discountPercentage}>
-            {Math.round(product.discountPercentage)}%
-          </Text>
+          <BeforePrice
+            price={product.price}
+            discountPercentage={product.discountPercentage}
+          />
+          <Price price={product.price} />
+          <DiscountPercentage discountPercentage={product.discountPercentage} />
         </View>
       </View>
-      <Text style={styles.description}>{product.description}</Text>
+      <Description description={product.description} />
       <View style={styles.buttonContainer}>
         <Pressable style={[styles.button, styles.buyButton]}>
           <MaterialIcons name='payment' size={50} color='white' />
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     marginTop: 10,
   },
-  titleContainer: {
+  infoContainer: {
     ...flex("space-evenly"),
     marginVertical: 15,
   },
@@ -90,7 +92,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     flexWrap: "wrap",
   },
-  upTitle: {
+  ratingStockContainer: {
     ...flex("space-evenly"),
     fontSize: 10,
     marginTop: 10,
@@ -109,31 +111,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginEnd: 10,
   },
-  beforePrice: {
-    fontSize: 13,
-    textDecorationLine: "line-through",
-  },
-  price: {
-    fontSize: 40,
-    fontWeight: "900",
-  },
-  discountPercentage: {
-    backgroundColor: "lightgreen",
-    paddingHorizontal: 15,
-    borderRadius: 20,
-    fontSize: 15,
-  },
-  description: {
-    fontSize: 20,
-    backgroundColor: colors.white,
-    padding: 20,
-    //marginHorizontal: 15,
-    //borderRadius: 30,
-    textAlign: "center",
-    fontWeight: "300",
-  },
   buttonContainer: {
-    //...flex("space-evenly"),
     marginVertical: 10,
     color: "white",
   },

@@ -1,7 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 
-import { flex, border } from "../theme/stylesFunctions";
+import { flex } from "../theme/stylesFunctions";
+
+import Price from "./Price";
+import DiscountPercentage from "./DiscountPercentage";
+import BeforePrice from "./BeforePrice";
 
 const ProductItem = ({ item, navigation }) => {
   return (
@@ -12,25 +16,23 @@ const ProductItem = ({ item, navigation }) => {
       >
         <Image
           style={styles.image}
-          height={80}
-          width={80}
+          height={100}
+          width={100}
           source={{ uri: item.thumbnail }}
           resizeMode='cover'
         />
         <View style={styles.infoContainer}>
           <Text style={styles.title}>{item.title}</Text>
           <View style={styles.priceDiscountContainer}>
-            <Text style={styles.price}>$ {item.price}</Text>
+            <Price price={item.price} />
             <View style={styles.priceContainer}>
-              <Text style={styles.beforePrice}>
-                $
-                {Math.round(
-                  (item.price * item.discountPercentage) / 100 + item.price
-                )}
-              </Text>
-              <Text style={styles.discountPercentage}>
-                {Math.round(item.discountPercentage)}% OFF
-              </Text>
+              <BeforePrice
+                price={item.price}
+                discountPercentage={item.discountPercentage}
+              />
+              <DiscountPercentage
+                discountPercentage={item.discountPercentage}
+              />
             </View>
           </View>
         </View>
@@ -52,9 +54,10 @@ const styles = StyleSheet.create({
     width: "70%",
   },
   title: {
-    fontSize: 22,
+    fontSize: 23,
     flexWrap: "wrap",
     fontWeight: "300",
+    width: "80%",
   },
   priceDiscountContainer: {
     ...flex("flex-start"),
@@ -62,22 +65,5 @@ const styles = StyleSheet.create({
   priceContainer: {
     alignItems: "center",
     marginEnd: 10,
-  },
-  beforePrice: {
-    fontSize: 13,
-    textDecorationLine: "line-through",
-  },
-  price: {
-    fontSize: 35,
-    fontWeight: "900",
-    marginHorizontal: 10,
-  },
-  discountPercentage: {
-    backgroundColor: "lightgreen",
-    marginHorizontal: 10,
-    borderRadius: 20,
-    fontSize: 15,
-    width: 70,
-    textAlign: "center",
   },
 });
