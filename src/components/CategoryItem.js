@@ -17,14 +17,17 @@ const CategoryItem = ({ item, navigation }) => {
 export default CategoryItem;
 
 const styles = StyleSheet.create({
-  categoriesContainer: {},
+  categoriesContainer: {
+    width: "90%",
+    marginHorizontal: 20,
+  },
   text: {
     margin: 10,
     paddingVertical: 10,
     fontSize: 30,
     color: color.heavyBlue,
     borderColor: color.mediumBlue,
-    borderRadius: 10,
+    borderRadius: 20,
     borderWidth: 2,
     textAlign: "center",
   },

@@ -12,7 +12,7 @@ const ProductDetail = ({ route }) => {
   const { product } = route.params;
 
   return (
-    <View>
+    <View style={styles.container}>
       <Header title={product.category} />
       <View style={styles.imageContainer}>
         <Image
@@ -74,6 +74,10 @@ const centrar = {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    height: "100%",
+  },
   imageContainer: {
     alignItems: "center",
   },
