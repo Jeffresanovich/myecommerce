@@ -2,12 +2,15 @@ import { StyleSheet, Text, View, Pressable } from "react-native";
 
 import color from "../theme/color";
 
-const CategoryItem = ({ item, navigation }) => {
+const CategoryItem = ({ item, navigation, setModalVisible }) => {
+  const handlePress = () => {
+    navigation.navigate("Products", { category: item });
+    setModalVisible(!modalVisible);
+  };
+
   return (
     <View style={styles.categoriesContainer}>
-      <Pressable
-        onPress={() => navigation.navigate("Products", { category: item })}
-      >
+      <Pressable onPress={handlePress}>
         <Text style={styles.text}> {item.toUpperCase()} </Text>
       </Pressable>
     </View>
