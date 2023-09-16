@@ -1,4 +1,11 @@
-import { StyleSheet, View, Text, Image, Pressable } from "react-native";
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  Image,
+  Pressable,
+} from "react-native";
 
 //Icons
 import { AntDesign } from "@expo/vector-icons";
@@ -21,47 +28,52 @@ const ProductDetail = ({ route }) => {
   return (
     <View style={styles.container}>
       <Header title={product.category} />
-      <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          source={{
-            uri: product.images[0],
-          }}
-        />
-      </View>
-      <View style={styles.infoContainer}>
-        <View>
-          <Text style={styles.title}>{product.title}</Text>
-          <View style={styles.ratingStockContainer}>
-            <View style={styles.ratingContainer}>
-              <AntDesign name='star' size={24} color='yellow' />
-              <Text style={styles.rating}>{product.rating.toFixed(1)}</Text>
+      <ScrollView>
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            source={{
+              uri: product.images[0],
+            }}
+          />
+        </View>
+        <View style={styles.infoContainer}>
+          <View>
+            <Text style={styles.title}>{product.title}</Text>
+            <View style={styles.ratingStockContainer}>
+              <View style={styles.ratingContainer}>
+                <AntDesign name='star' size={24} color='yellow' />
+                <Text style={styles.rating}>{product.rating.toFixed(1)}</Text>
+              </View>
+              <Text style={styles.stock}>
+                {product.stock}{" "}
+                {product.stock > 1 ? "disponibles" : "disponible"}
+              </Text>
             </View>
-            <Text style={styles.stock}>
-              {product.stock} {product.stock > 1 ? "disponibles" : "disponible"}
-            </Text>
+          </View>
+          <View style={styles.priceContainer}>
+            <BeforePrice
+              price={product.price}
+              discountPercentage={product.discountPercentage}
+            />
+            <Price price={product.price} />
+            <DiscountPercentage
+              discountPercentage={product.discountPercentage}
+            />
           </View>
         </View>
-        <View style={styles.priceContainer}>
-          <BeforePrice
-            price={product.price}
-            discountPercentage={product.discountPercentage}
-          />
-          <Price price={product.price} />
-          <DiscountPercentage discountPercentage={product.discountPercentage} />
+        <Description description={product.description} />
+        <View style={styles.buttonContainer}>
+          <Pressable style={[styles.button, styles.buyButton]}>
+            <MaterialIcons name='payment' size={50} color='white' />
+            <Text style={styles.buttonText}>Comprar</Text>
+          </Pressable>
+          <Pressable style={[styles.button, styles.cartButton]}>
+            <Text style={styles.buttonText}>Carrito</Text>
+            <FontAwesome5 name='shopping-cart' size={40} color='white' />
+          </Pressable>
         </View>
-      </View>
-      <Description description={product.description} />
-      <View style={styles.buttonContainer}>
-        <Pressable style={[styles.button, styles.buyButton]}>
-          <MaterialIcons name='payment' size={50} color='white' />
-          <Text style={styles.buttonText}>Comprar</Text>
-        </Pressable>
-        <Pressable style={[styles.button, styles.cartButton]}>
-          <Text style={styles.buttonText}>Carrito</Text>
-          <FontAwesome5 name='shopping-cart' size={40} color='white' />
-        </Pressable>
-      </View>
+      </ScrollView>
     </View>
   );
 };
@@ -113,13 +125,14 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginVertical: 10,
-    color: "white",
+    alignItems: "center",
   },
   button: {
     paddingHorizontal: 25,
     paddingVertical: 10,
     borderRadius: 50,
     margin: 10,
+    width: 300,
   },
   buttonText: {
     color: "white",

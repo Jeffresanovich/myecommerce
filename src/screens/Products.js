@@ -33,7 +33,7 @@ const Products = ({ route, navigation }) => {
   }, [text, category]);
 
   return (
-    <View>
+    <View style={styles.container}>
       <Header title={category} />
       <Search text={text} setText={setText} />
       <ProductsList products={productSearch} navigation={navigation} />
@@ -44,6 +44,9 @@ const Products = ({ route, navigation }) => {
 export default Products;
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: 350,
+  },
   input: {
     height: 40,
     margin: 12,
