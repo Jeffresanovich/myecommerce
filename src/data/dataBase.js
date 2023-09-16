@@ -47,7 +47,7 @@ export const products = [
     description:
       "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
     price: 899,
-    discountPercentage: 17.94,
+    discountPercentage: 21.94,
     rating: 4.44,
     stock: 13,
     brand: "Apple",
@@ -232,7 +232,7 @@ export const products = [
     title: "Brown Perfume",
     description: "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
     price: 40,
-    discountPercentage: 15.66,
+    discountPercentage: 20.66,
     rating: 4,
     stock: 52,
     brand: "Royal_Mirage",
@@ -991,7 +991,7 @@ export const products = [
     description:
       "Many store is creating new designs and trend every month and every year. Daraz.pk have a beautiful range of men fashion brands",
     price: 23,
-    discountPercentage: 12.76,
+    discountPercentage: 22.76,
     rating: 4.26,
     stock: 132,
     brand: "Vintage Apparel",
@@ -1791,7 +1791,7 @@ export const products = [
     description:
       "150cc 4-Stroke Motorcycle Automatic Motor Gas Motorcycles Scooter motorcycles 150cc scooter",
     price: 1050,
-    discountPercentage: 3.34,
+    discountPercentage: 30.34,
     rating: 4.84,
     stock: 127,
     brand: "shock absorber",

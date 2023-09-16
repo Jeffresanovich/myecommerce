@@ -21,6 +21,7 @@ import Description from "../components/Description";
 
 //Styles
 import { flex } from "../theme/stylesFunctions";
+import Title from "../components/Title";
 
 const ProductDetail = ({ route }) => {
   const { product } = route.params;
@@ -38,8 +39,8 @@ const ProductDetail = ({ route }) => {
           />
         </View>
         <View style={styles.infoContainer}>
-          <View>
-            <Text style={styles.title}>{product.title}</Text>
+          <View style={styles.titleRatingStockContainer}>
+            <Title title={product.title} />
             <View style={styles.ratingStockContainer}>
               <View style={styles.ratingContainer}>
                 <AntDesign name='star' size={24} color='yellow' />
@@ -98,11 +99,8 @@ const styles = StyleSheet.create({
     ...flex("space-evenly"),
     marginVertical: 15,
   },
-  title: {
-    textAlign: "center",
+  titleRatingStockContainer: {
     width: 300,
-    fontSize: 30,
-    flexWrap: "wrap",
   },
   ratingStockContainer: {
     ...flex("space-evenly"),
