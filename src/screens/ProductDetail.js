@@ -6,6 +6,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 
 import Header from "../components/Header";
 
+import { flex } from "../theme/stylesFunctions";
 import colors from "../theme/color";
 
 const ProductDetail = ({ route }) => {
@@ -64,14 +65,6 @@ const ProductDetail = ({ route }) => {
 };
 
 export default ProductDetail;
-/**
- * Permite centrar: se usa con el operador spread (...)
- */
-const centrar = {
-  justifyContent: "space-evenly",
-  alignItems: "center",
-  flexDirection: "row",
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -88,7 +81,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   titleContainer: {
-    ...centrar,
+    ...flex("space-evenly"),
     marginVertical: 15,
   },
   title: {
@@ -98,12 +91,12 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   upTitle: {
-    ...centrar,
+    ...flex("space-evenly"),
     fontSize: 10,
     marginTop: 10,
   },
   ratingContainer: {
-    ...centrar,
+    ...flex("space-evenly"),
   },
   rating: {
     textAlign: "center",
@@ -140,7 +133,7 @@ const styles = StyleSheet.create({
     fontWeight: "300",
   },
   buttonContainer: {
-    //...centrar,
+    //...flex("space-evenly"),
     marginVertical: 10,
     color: "white",
   },
@@ -156,11 +149,11 @@ const styles = StyleSheet.create({
     fontWeight: "900",
   },
   buyButton: {
-    ...centrar,
+    ...flex("space-evenly"),
     backgroundColor: "blue",
   },
   cartButton: {
-    ...centrar,
+    ...flex("space-evenly"),
     backgroundColor: "green",
   },
 });
