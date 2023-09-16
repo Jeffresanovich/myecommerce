@@ -18,7 +18,7 @@ const Search = ({ text, setText }) => {
         style={styles.input}
         onChangeText={setText}
         value={text}
-        placeholder='Ingrese un producto'
+        placeholder='Buscar producto...'
       />
       {text ? (
         <Pressable onPress={clearText}>
