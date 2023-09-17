@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
     width: "80%",
   },
   priceDiscountContainer: {
-    ...flex("flex-start"),
+    ...flex("space-between"),
+    marginRight: 40,
   },
   priceContainer: {
     alignItems: "center",
