@@ -5,7 +5,7 @@ import color from "../theme/color";
 const CategoryItem = ({ item, navigation, setModalVisible }) => {
   const handlePress = () => {
     navigation.navigate("Products", { category: item });
-    setModalVisible(!modalVisible);
+    setModalVisible(false);
   };
 
   return (
@@ -20,14 +20,11 @@ const CategoryItem = ({ item, navigation, setModalVisible }) => {
 export default CategoryItem;
 
 const styles = StyleSheet.create({
-  categoriesContainer: {
-    width: "90%",
-    marginHorizontal: 20,
-  },
+  categoriesContainer: {},
   text: {
     margin: 10,
     paddingVertical: 10,
-    fontSize: 30,
+    fontSize: 20,
     color: color.heavyBlue,
     borderColor: color.mediumBlue,
     borderRadius: 20,

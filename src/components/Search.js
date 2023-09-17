@@ -5,9 +5,6 @@ import { MaterialIcons } from "@expo/vector-icons";
 import colors from "../theme/color";
 
 const Search = ({ text, setText }) => {
-  /**
-   * Limpia el TextImput
-   */
   const clearText = () => {
     setText(null);
   };
@@ -18,7 +15,7 @@ const Search = ({ text, setText }) => {
         style={styles.input}
         onChangeText={setText}
         value={text}
-        placeholder='Buscar producto...'
+        placeholder='Search product...'
       />
       {text ? (
         <Pressable onPress={clearText}>
