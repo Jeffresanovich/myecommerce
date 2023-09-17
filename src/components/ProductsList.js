@@ -17,7 +17,7 @@ const ProductsList = ({ products, navigation }) => {
         <Image
           style={styles.tinyLogo}
           source={{
-            uri: "./assets/product-not-found.png",
+            uri: "https://cdni.iconscout.com/illustration/premium/thumb/sorry-item-not-found-3328225-2809510.png?f=webp",
           }}
         />
       )}
@@ -29,8 +29,8 @@ export default ProductsList;
 
 const styles = StyleSheet.create({
   tinyLogo: {
-    width: 50,
-    height: 50,
+    width: 420,
+    height: 400,
   },
 });
 
