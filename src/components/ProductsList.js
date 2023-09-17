@@ -5,7 +5,7 @@ import ProductItem from "./ProductItem";
 const ProductsList = ({ products, navigation }) => {
   return (
     <View>
-      {products.lenght < 0 ? (
+      {products.length > 0 ? (
         <FlatList
           data={products}
           keyExtractor={products.id}
