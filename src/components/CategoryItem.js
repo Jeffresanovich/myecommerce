@@ -2,12 +2,15 @@ import { StyleSheet, Text, View, Pressable } from "react-native";
 
 import color from "../theme/color";
 
-const CategoryItem = ({ item, navigation }) => {
+const CategoryItem = ({ item, navigation, setModalVisible }) => {
+  const handlePress = () => {
+    navigation.navigate("Products", { category: item });
+    setModalVisible(false);
+  };
+
   return (
     <View style={styles.categoriesContainer}>
-      <Pressable
-        onPress={() => navigation.navigate("Products", { category: item })}
-      >
+      <Pressable onPress={handlePress}>
         <Text style={styles.text}> {item.toUpperCase()} </Text>
       </Pressable>
     </View>
@@ -17,14 +20,11 @@ const CategoryItem = ({ item, navigation }) => {
 export default CategoryItem;
 
 const styles = StyleSheet.create({
-  categoriesContainer: {
-    width: "90%",
-    marginHorizontal: 20,
-  },
+  categoriesContainer: {},
   text: {
     margin: 10,
     paddingVertical: 10,
-    fontSize: 30,
+    fontSize: 20,
     color: color.heavyBlue,
     borderColor: color.mediumBlue,
     borderRadius: 20,

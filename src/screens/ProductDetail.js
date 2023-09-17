@@ -46,10 +46,7 @@ const ProductDetail = ({ route }) => {
                 <AntDesign name='star' size={24} color='yellow' />
                 <Text style={styles.rating}>{product.rating.toFixed(1)}</Text>
               </View>
-              <Text style={styles.stock}>
-                {product.stock}{" "}
-                {product.stock > 1 ? "disponibles" : "disponible"}
-              </Text>
+              <Text style={styles.stock}>{product.stock} available</Text>
             </View>
           </View>
           <View style={styles.priceContainer}>
@@ -67,10 +64,10 @@ const ProductDetail = ({ route }) => {
         <View style={styles.buttonContainer}>
           <Pressable style={[styles.button, styles.buyButton]}>
             <MaterialIcons name='payment' size={50} color='white' />
-            <Text style={styles.buttonText}>Comprar</Text>
+            <Text style={styles.buttonText}>Buy</Text>
           </Pressable>
           <Pressable style={[styles.button, styles.cartButton]}>
-            <Text style={styles.buttonText}>Carrito</Text>
+            <Text style={styles.buttonText}>Cart</Text>
             <FontAwesome5 name='shopping-cart' size={40} color='white' />
           </Pressable>
         </View>

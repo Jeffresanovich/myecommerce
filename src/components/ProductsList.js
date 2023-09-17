@@ -1,4 +1,4 @@
-import { View, FlatList, Text } from "react-native";
+import { StyleSheet, View, FlatList, Image } from "react-native";
 
 import ProductItem from "./ProductItem";
 
@@ -14,12 +14,24 @@ const ProductsList = ({ products, navigation }) => {
           )}
         />
       ) : (
-        <Text>Sin productos para mostar</Text>
+        <Image
+          style={styles.tinyLogo}
+          source={{
+            uri: "./assets/product-not-found.png",
+          }}
+        />
       )}
     </View>
   );
 };
 
 export default ProductsList;
+
+const styles = StyleSheet.create({
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
+});
 
 /**ESTILIZAR EL COMPONENTE "SIN PRODUCTOS PARA MOSTRAR" */
