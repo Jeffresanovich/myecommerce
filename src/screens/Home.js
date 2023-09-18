@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 5,
     elevation: 2,
-    width: 100,
+    width: 120,
     backgroundColor: "blue",
   },
   buttonText: {
