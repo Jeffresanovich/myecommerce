@@ -9,7 +9,7 @@ import BeforePrice from "./BeforePrice";
 
 const ProductItem = ({ item, navigation }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <Pressable
         style={styles.button}
         onPress={() => navigation.navigate("ProductDetail", { product: item })}
@@ -44,6 +44,7 @@ const ProductItem = ({ item, navigation }) => {
 export default ProductItem;
 
 const styles = StyleSheet.create({
+  container: {},
   button: {
     ...flex("flex-start"),
   },

@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { StyleSheet, View, Pressable, Text, Modal, Alert } from "react-native";
+import { StyleSheet, View, Pressable, Text, Modal } from "react-native";
 
 import Header from "../components/Header";
-import Title from "../components/Title";
 import Search from "../components/Search";
 import ProductsList from "../components/ProductsList";
 import CategoriesList from "../components/CategoriesList";
@@ -16,8 +15,10 @@ const Home = ({ navigation }) => {
   const [text, setText] = useState(null);
   const [productSearch, setProductSearch] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
+  const [imagVisible, setImageVisible] = useState(false);
 
   useEffect(() => {
+    setImageVisible(false);
     //Filtra los productos con descuentos mayores a 20%
     const offersProducts = products.filter(
       (product) => product.discountPercentage > 20
@@ -30,6 +31,10 @@ const Home = ({ navigation }) => {
         (search) =>
           search.title.toLocaleLowerCase() === text.toLocaleLowerCase()
       );
+
+      if (searchByTitle === 0) setImageVisible(true);
+      else setImageVisible(false);
+
       setProductSearch(searchByTitle);
     }
   }, [text]);
@@ -44,7 +49,11 @@ const Home = ({ navigation }) => {
           <Text style={styles.buttonText}>CATEGORIES</Text>
         </Pressable>
       </View>
-      <ProductsList products={productSearch} navigation={navigation} />
+      <ProductsList
+        navigation={navigation}
+        products={productSearch}
+        imageVisible={imagVisible}
+      />
       {!text ? <Text style={styles.bestOffers}>BEST OFFERS!!!</Text> : null}
       <Modal
         animationType='slide'
@@ -87,10 +96,13 @@ const styles = StyleSheet.create({
   },
   bestOffers: {
     margin: 10,
-    textAlign: "center",
-    fontSize: 40,
     color: "red",
+    textAlign: "center",
     fontWeight: "bold",
     fontFamily: "BlackOpsOne",
+    fontSize: 40,
+    textShadowColor: "rgba(255, 0, 0, 0.75)",
+    textShadowOffset: { width: 5, height: 5 },
+    textShadowRadius: 15,
   },
 });
