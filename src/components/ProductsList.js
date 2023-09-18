@@ -16,9 +16,7 @@ const ProductsList = ({ products, navigation }) => {
       ) : (
         <Image
           style={styles.tinyLogo}
-          source={{
-            uri: "https://cdni.iconscout.com/illustration/premium/thumb/sorry-item-not-found-3328225-2809510.png?f=webp",
-          }}
+          source={require("../../assets/product-not-found.png")}
         />
       )}
     </View>
