@@ -45,9 +45,7 @@ const Home = ({ navigation }) => {
         </Pressable>
       </View>
       <ProductsList products={productSearch} navigation={navigation} />
-      {!text ? (
-        <Title otherStyle={styles.title} title={"BEST OFFERS!!!"} />
-      ) : null}
+      {!text ? <Text style={styles.bestOffers}>BEST OFFERS!!!</Text> : null}
       <Modal
         animationType='slide'
         transparent={true}
@@ -87,8 +85,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  title: {
+  bestOffers: {
     margin: 10,
+    textAlign: "center",
+    fontSize: 40,
     color: "red",
     fontWeight: "bold",
     fontFamily: "BlackOpsOne",
