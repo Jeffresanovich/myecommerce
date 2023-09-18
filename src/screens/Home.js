@@ -15,7 +15,7 @@ const Home = ({ navigation }) => {
   const [text, setText] = useState(null);
   const [productSearch, setProductSearch] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
-  const [imagVisible, setImageVisible] = useState(false);
+  const [imageVisible, setImageVisible] = useState(false);
 
   useEffect(() => {
     setImageVisible(false);
@@ -32,8 +32,8 @@ const Home = ({ navigation }) => {
           search.title.toLocaleLowerCase() === text.toLocaleLowerCase()
       );
 
-      if (searchByTitle === 0) setImageVisible(true);
-      else setImageVisible(false);
+      if (text == "") setImageVisible(false);
+      else setImageVisible(true);
 
       setProductSearch(searchByTitle);
     }
@@ -52,7 +52,7 @@ const Home = ({ navigation }) => {
       <ProductsList
         navigation={navigation}
         products={productSearch}
-        imageVisible={imagVisible}
+        imageVisible={imageVisible}
       />
       {!text ? <Text style={styles.bestOffers}>BEST OFFERS!!!</Text> : null}
       <Modal
