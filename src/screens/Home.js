@@ -7,6 +7,8 @@ import Search from "../components/Search";
 import ProductsList from "../components/ProductsList";
 import CategoriesList from "../components/CategoriesList";
 
+import { flex } from "../theme/stylesFunctions";
+
 //Products data base
 import { products } from "../data/dataBase";
 
@@ -36,11 +38,16 @@ const Home = ({ navigation }) => {
     <View style={styles.container}>
       <Header title='Home'></Header>
       <Search text={text} setText={setText} />
-      <Pressable style={styles.button} onPress={() => setModalVisible(true)}>
-        <Text style={styles.buttonText}>CATEGORIES</Text>
-      </Pressable>
+      <View style={styles.filterByCategoryContainer}>
+        <Text style={styles.text}>Filter by: </Text>
+        <Pressable style={styles.button} onPress={() => setModalVisible(true)}>
+          <Text style={styles.buttonText}>CATEGORIES</Text>
+        </Pressable>
+      </View>
       <ProductsList products={productSearch} navigation={navigation} />
-      {!text ? <Title title={"BEST OFFERS!!!"} /> : null}
+      {!text ? (
+        <Title otherStyle={styles.title} title={"BEST OFFERS!!!"} />
+      ) : null}
       <Modal
         animationType='slide'
         transparent={true}
@@ -62,7 +69,13 @@ const styles = StyleSheet.create({
   container: {
     marginBottom: 200,
   },
+  filterByCategoryContainer: {
+    marginHorizontal: 20,
+    marginVertical: 10,
+    ...flex("flex-start"),
+  },
   button: {
+    marginHorizontal: 10,
     borderRadius: 20,
     padding: 5,
     elevation: 2,
@@ -73,5 +86,11 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
+  },
+  title: {
+    margin: 10,
+    color: "red",
+    fontWeight: "bold",
+    fontFamily: "BlackOpsOne",
   },
 });

@@ -16,7 +16,7 @@ const ProductsList = ({ products, navigation }) => {
       ) : (
         <Image
           style={styles.tinyLogo}
-          source={require("../../assets/product-not-found.png")}
+          //source={require("../../assets/product-not-found.png")} //EN PROCESO DE APLICACION
         />
       )}
     </View>
@@ -27,6 +27,7 @@ export default ProductsList;
 
 const styles = StyleSheet.create({
   tinyLogo: {
+    marginVertical: 50,
     width: 420,
     height: 400,
   },

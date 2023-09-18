@@ -25,10 +25,10 @@ export default CategoriesList;
 
 const styles = StyleSheet.create({
   modalView: {
-    margin: 80,
+    margin: 60,
     backgroundColor: "white",
     borderRadius: 20,
-    padding: 5,
+    padding: 20,
     shadowColor: "black",
     elevation: 50,
   },

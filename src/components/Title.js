@@ -1,7 +1,7 @@
 import { StyleSheet, Text } from "react-native";
 
-const Title = ({ title }) => {
-  return <Text style={styles.title}>{title}</Text>;
+const Title = ({ otherStyle, title }) => {
+  return <Text style={[styles.title, otherStyle]}>{title}</Text>;
 };
 
 export default Title;
