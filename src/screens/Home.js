@@ -32,8 +32,7 @@ const Home = ({ navigation }) => {
           search.title.toLocaleLowerCase() === text.toLocaleLowerCase()
       );
 
-      if (text == "") setImageVisible(false);
-      else setImageVisible(true);
+      if (searchByTitle.length === 0) setImageVisible(true);
 
       setProductSearch(searchByTitle);
     }

@@ -13,10 +13,11 @@ const Products = ({ route, navigation }) => {
   const { category } = route.params;
 
   const [text, setText] = useState(null);
-
   const [productSearch, setProductSearch] = useState([]);
+  const [imageVisible, setImageVisible] = useState(false);
 
   useEffect(() => {
+    setImageVisible(false);
     const productsByCategory = allProducts.filter(
       (search) => search.category.toLowerCase() === category.toLowerCase()
     );
@@ -28,6 +29,9 @@ const Products = ({ route, navigation }) => {
         (search) =>
           search.title.toLocaleLowerCase() === text.toLocaleLowerCase()
       );
+
+      if (searchByTitle.length === 0) setImageVisible(true);
+
       setProductSearch(searchByTitle);
     }
   }, [text, category]);
@@ -36,7 +40,11 @@ const Products = ({ route, navigation }) => {
     <View style={styles.container}>
       <Header title={category} />
       <Search text={text} setText={setText} />
-      <ProductsList products={productSearch} navigation={navigation} />
+      <ProductsList
+        navigation={navigation}
+        products={productSearch}
+        imageVisible={imageVisible}
+      />
     </View>
   );
 };

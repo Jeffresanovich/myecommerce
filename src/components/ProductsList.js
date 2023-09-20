@@ -3,9 +3,9 @@ import { StyleSheet, View, FlatList, Image } from "react-native";
 import ProductItem from "./ProductItem";
 
 const ProductsList = ({ navigation, products, imageVisible }) => {
-  console.log("imagen " + imageVisible);
+  console.log("productos " + products.length);
+  console.log("visible " + imageVisible);
 
-  console.log("tamanio " + products.length);
   return (
     <View>
       {imageVisible ? (
@@ -35,5 +35,3 @@ const styles = StyleSheet.create({
     height: 400,
   },
 });
-
-/**ESTILIZAR EL COMPONENTE "SIN PRODUCTOS PARA MOSTRAR" */
