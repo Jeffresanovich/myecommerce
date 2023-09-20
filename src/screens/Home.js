@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { StyleSheet, View, Pressable, Text, Modal } from "react-native";
 
+//Components
 import Header from "../components/Header";
 import Search from "../components/Search";
 import ProductsList from "../components/ProductsList";
 import CategoriesList from "../components/CategoriesList";
 
+//Function Styles
 import { flex } from "../theme/stylesFunctions";
 
 //Products data base
@@ -25,13 +27,13 @@ const Home = ({ navigation }) => {
     );
     setProductSearch(offersProducts);
 
-    //Busca en todos los productos
     if (text) {
       const searchByTitle = products.filter(
         (search) =>
           search.title.toLocaleLowerCase() === text.toLocaleLowerCase()
       );
 
+      //Permite mostrar una imagen cuando la busqueda no trae ningun producto
       if (searchByTitle.length === 0) setImageVisible(true);
 
       setProductSearch(searchByTitle);

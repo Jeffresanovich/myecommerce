@@ -3,9 +3,6 @@ import { StyleSheet, View, FlatList, Image } from "react-native";
 import ProductItem from "./ProductItem";
 
 const ProductsList = ({ navigation, products, imageVisible }) => {
-  console.log("productos " + products.length);
-  console.log("visible " + imageVisible);
-
   return (
     <View>
       {imageVisible ? (

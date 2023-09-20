@@ -18,6 +18,8 @@ const Products = ({ route, navigation }) => {
 
   useEffect(() => {
     setImageVisible(false);
+
+    //Muestra solo los productos que coincidan con la cetegoria seleccionada
     const productsByCategory = allProducts.filter(
       (search) => search.category.toLowerCase() === category.toLowerCase()
     );
@@ -30,6 +32,7 @@ const Products = ({ route, navigation }) => {
           search.title.toLocaleLowerCase() === text.toLocaleLowerCase()
       );
 
+      //Permite mostrar una imagen cuando la busqueda no trae ningun producto
       if (searchByTitle.length === 0) setImageVisible(true);
 
       setProductSearch(searchByTitle);
